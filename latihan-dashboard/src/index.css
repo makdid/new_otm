@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap");
-
 html,
 body,
 #root,
@@ -16,7 +14,7 @@ body,
 }
 
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 10px;
 }
 
 /* Track */
@@ -26,10 +24,10 @@ body,
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #292727;
+  background: #888;
 }
 
-/* Handle on hover */
+/* Handle on Hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #292727;
+  background: #555;
 }
