@@ -2,10 +2,18 @@ import { Box, Toolbar, Typography, useTheme } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 
 import Header from "../../../components/layout/signed/Header";
-
+import { GridToolbarContainer, GridToolbarExport } from "@mui/x-data-grid";
 import { tokens } from "../../../common/hooks/Theme";
 import { useGetProvincesQuery } from "../../../slices/master-data";
 
+
+function CustomToolbar() {
+  return (
+    <GridToolbarContainer>
+      <GridToolbarExport />
+    </GridToolbarContainer>
+  );
+}
 const MDProvince = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -44,7 +52,7 @@ const MDProvince = () => {
         }}
       >
         {isSuccess && (
-          <DataGrid rows={dataProvinces?.data?.province?.records} columns={columns} slots={{ toolbar: GridToolbar }} />
+          <DataGrid rows={dataProvinces?.data?.province?.records} columns={columns} slots={{  toolbar: CustomToolbar }} />
         )}
       </Box>
     </Box>

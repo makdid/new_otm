@@ -2,11 +2,18 @@ import { Box, Typography, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 
 import Header from "../../../components/layout/signed/Header";
-
+import { GridToolbarExport, GridToolbarContainer } from "@mui/x-data-grid";
 import { tokens } from "../../../common/hooks/Theme";
 import { useGetCitiesQuery } from "../../../slices/master-data";
 
 const MDProvince = () => {
+  function CustomToolbar() {
+    return (
+      <GridToolbarContainer>
+        <GridToolbarExport />
+      </GridToolbarContainer>
+    );
+  }
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -24,7 +31,7 @@ const MDProvince = () => {
       <Header title="CITIES" subtitle="Master Data City" />
 
       <Box m="40px 0 0 0" height="75vh">
-        {isSuccess && <DataGrid rows={dataCities?.data?.city?.records} columns={columns} />}
+        {isSuccess && <DataGrid rows={dataCities?.data?.city?.records} columns={columns} slots={{  toolbar: CustomToolbar, }}/>}
       </Box>
     </Box>
   );
