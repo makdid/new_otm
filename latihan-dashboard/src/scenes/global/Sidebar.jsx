@@ -1,21 +1,28 @@
 import { useState } from "react";
-import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
+import { ProSidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import ApartmentIcon from '@mui/icons-material/Apartment';
-import TravelExploreIcon from '@mui/icons-material/TravelExplore';
-import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
-import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
-import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
-import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
-import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
-import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
+import AssignmentTurnedInOutlinedIcon from '@mui/icons-material/AssignmentTurnedInOutlined';
+import ConstructionOutlinedIcon from '@mui/icons-material/ConstructionOutlined';
+import BallotOutlinedIcon from '@mui/icons-material/BallotOutlined';
+import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
+import ContentPasteSearchOutlinedIcon from '@mui/icons-material/ContentPasteSearchOutlined';
+import ContentPasteGoOutlinedIcon from '@mui/icons-material/ContentPasteGoOutlined';
+import AssignmentLateOutlinedIcon from '@mui/icons-material/AssignmentLateOutlined';
+import ListAltOutlinedIcon from '@mui/icons-material/ListAltOutlined';
+import ReceiptLongOutlinedIcon from '@mui/icons-material/ReceiptLongOutlined';
+import WorkHistoryOutlinedIcon from '@mui/icons-material/WorkHistoryOutlined';
+import FactCheckOutlinedIcon from '@mui/icons-material/FactCheckOutlined';
+import DiamondOutlinedIcon from '@mui/icons-material/DiamondOutlined';
+import HomeWorkOutlinedIcon from '@mui/icons-material/HomeWorkOutlined';
+import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
+import PlumbingOutlinedIcon from '@mui/icons-material/PlumbingOutlined';
+import PlaylistAddCheckCircleOutlinedIcon from '@mui/icons-material/PlaylistAddCheckCircleOutlined';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -23,9 +30,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
   return (
     <MenuItem
       active={selected === title}
-      style={{
-        color: colors.grey[100],
-      }}
+      style={{ color: colors.grey[100],}}
       onClick={() => setSelected(title)}
       icon={icon}
     >
@@ -79,9 +84,18 @@ const Sidebar = () => {
                 alignItems="center"
                 ml="15px"
               >
-                <Typography variant="h3" color={colors.grey[100]}>
-                  Krusty Krab
-                </Typography>
+                
+              <Box display="flex" justifyContent="center" alignItems="center">
+                <div className="profile.box">
+                  <img
+                    className="profile-picture"
+                    src="../../assets/otmlogo.png"
+                    alt="Profile"
+                    width="80px"
+                    height="100%"
+                  />
+                </div>
+              </Box>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
                 </IconButton>
@@ -89,137 +103,145 @@ const Sidebar = () => {
             )}
           </MenuItem>
 
-          {!isCollapsed && (
-            <Box mb="25px">
-              <Box display="flex" justifyContent="center" alignItems="center">
-                <div className="profile.box">
-                  <img
-                    className="profile-picture"
-                    src="../../assets/user.png"
-                    alt="Profile"
-                    width="100px"
-                    height="100px"
-                  />
-                </div>
-              </Box>
-              <Box textAlign="center">
-                <Typography
-                  variant="h2"
-                  color={colors.grey[100]}
-                  fontWeight="bold"
-                  sx={{ m: "10px 0 0 0" }}
-                >
-                  Squidward
-                </Typography>
-                <Typography variant="h5" color={colors.greenAccent[500]}>
-                  Kasir
-                </Typography>
-              </Box>
-            </Box>
-          )}
-
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
-            <Item
+            <SubMenu
               title="Dashboard"
-              to="/"
+              to=""
               icon={<HomeOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
-
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0 5px 20px" }}
             >
-              Data
-            </Typography>
             <Item
-              title="Kota"
-              to="/city"
-              icon={<ApartmentIcon />}
+              title="Work Order"
+              to="/"
+              icon={<ListAltOutlinedIcon/>}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Provinsi"
+              title="Preventive Maintenance(PM)"
+              to="/date-time"
+              icon={<ConstructionOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+             </SubMenu>
+            <SubMenu
+              title="Work Orders"
+              to=""
+              icon={<BallotOutlinedIcon/>}
+              selected={selected}
+              setSelected={setSelected}
+            >
+            <Item
+              title="All Work Orders"
               to="/province"
-              icon={<TravelExploreIcon />}
+              icon={<AssignmentOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Invoice"
+              title="Not Started Work Orders"
               to="/invoices"
-              icon={<ReceiptOutlinedIcon />}
+              icon={<ContentPasteSearchOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0 5px 20px" }}
+            <Item
+              title="Started Work Orders"
+              to="/line"
+              icon={<ContentPasteGoOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Completed / Need Feedback"
+              to="/faq"
+              icon={<AssignmentLateOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Finished Work Orders"
+              to="/bar"
+              icon={<AssignmentTurnedInOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            </SubMenu>
+            <SubMenu
+              title="Preventive Maintenance(PM)"
+              to=""
+              icon={<ConstructionOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
             >
-              Halaman
-            </Typography>
-            <Item
-              title="Pendaftaran"
-              to="/form"
-              icon={<PersonOutlinedIcon />}
+              <Item
+              title="All PM(list)"
+              to="/pie"
+              icon={<ReceiptLongOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Kalender"
+              title="PM Scheddules"
               to="/calendar"
               icon={<CalendarTodayOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
+            </SubMenu>
             <Item
-              title="Bantuan"
-              to="/faq"
-              icon={<HelpOutlineOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0 5px 20px" }}
-            >
-              Grafik
-            </Typography>
-            <Item
-              title="Bar Chart"
-              to="/bar"
-              icon={<BarChartOutlinedIcon />}
+              title="Project"
+              to="/form"
+              icon={<WorkHistoryOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Pie Chart"
-              to="/pie"
-              icon={<PieChartOutlineOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Line Chart"
-              to="/line"
-              icon={<TimelineOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Geography Chart"
+              title="Daily Report"
               to="/geography"
-              icon={<MapOutlinedIcon />}
+              icon={<FactCheckOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
+            <SubMenu
+              title="Assets"
+              to=""
+              icon={<DiamondOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            >
+            <Item
+              title="List Of Asset"
+              to=""
+              icon={<HomeWorkOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="List Of Certificate"
+              to=""
+              icon={<WorkspacePremiumOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            </SubMenu>
+            <SubMenu
+              title="Spareparts"
+              to=""
+              icon={<PlumbingOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            >
+            <Item
+              title="List Of Spareparts (Inventory)"
+              to=""
+              icon={<PlaylistAddCheckCircleOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            </SubMenu>
           </Box>
         </Menu>
       </ProSidebar>

@@ -37,7 +37,7 @@ const PieChart = () => {
           },
         },
       }}
-      margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
+      margin={{ top: 40, right: 100, bottom: 60, left: 60 }}
       innerRadius={0.5}
       padAngle={0.7}
       cornerRadius={3}
@@ -80,12 +80,12 @@ const PieChart = () => {
       legends={[
         {
           anchor: "bottom",
-          direction: "row",
+          direction: "column",
           justify: false,
-          translateX: 0,
-          translateY: 56,
-          itemsSpacing: 0,
-          itemWidth: 100,
+          translateX: 170,
+          translateY: -37,
+          itemsSpacing: 10,
+          itemWidth: 24,
           itemHeight: 18,
           itemTextColor: "#999",
           itemDirection: "left-to-right",
