@@ -18,16 +18,37 @@ const SignIn = lazy(() => import("../pages/auth/SignIn"));
 const Page404 = lazy(() => import("../pages/Page404"));
 const Page500 = lazy(() => import("../pages/Page500"));
 
-const DashboardAll = lazy(() => import("../pages/dashboard/dashboard-all"));
+const DashboardWo = lazy(() => import("../pages/dashboard/dashboard-wo"));
+const DashboardPm = lazy(() => import("../pages/dashboard/dashboard-pm"));
 
-const MDProvince = lazy(() => import("../pages/master-data/md-province"));
-const MDCity = lazy(() => import("../pages/master-data/md-city"));
+const WorkOrderAll = lazy(() => import("../pages/work-order/all-wo"));
+const WorkOrderNS = lazy(() => import("../pages/work-order/not-started-wo"));
+const WorkOrderS = lazy(() => import("../pages/work-order/started-wo"));
+const WorkOrderC = lazy(() => import("../pages/work-order/completed"));
+const WorkOrderF = lazy(() => import("../pages/work-order/finished-wo"));
+
+const PreventiveMaintenanceAll = lazy(() => import("../pages/preventive-maintenance/all-pm"));
+const PreventiveMaintenanceSchedules = lazy(() => import("../pages/preventive-maintenance/pm-schedules"));
+
+const Project = lazy(() => import("../pages/project/projects"));
+
+const DailyReport = lazy(() => import("../pages/daily-report/reports"));
+
+const AssetList = lazy(() => import("../pages/asset/list-asset"));
+const AssetCertificate = lazy(() => import("../pages/asset/list-certificate"));
+
+const ListOfSpareparts = lazy (() => import("../pages/sparepart/list-sparepart"))
+
+const Vendor = lazy (() => import("../pages/contact/vendor"))
+const Contact = lazy (() => import("../pages/contact/contact-person"))
+
+const Setting = lazy (()=> import("../pages/setting/year"))
 
 function App() {
   const { configs } = useConfig();
   useWeighbridge();
 
-  const wb = useSelector((state) => state.wb);
+  const otm = useSelector((state) => state.wb);
 
   const loading = (
     <div className="pt-3 text-center">
@@ -51,38 +72,38 @@ function App() {
 
         {/* protected routes */}
         {/* <Route element={<RequireAuth />}> */}
-        <Route path="wb" name="signedPages" element={<LayoutSigned />}>
-          <Route index name="dashboardAll" element={<DashboardAll />} />
-          <Route path="dashboard/all" name="dashboardAll" element={<DashboardAll />} />
-          <Route path="dashboard/pks" name="dashboardPks" element={<div>Dashboard PKS</div>} />
-          <Route path="dashboard/t30" name="dashboardT30" element={<div>Dashboard T30</div>} />
-          <Route path="dashboard/labanan" name="dashboardLabanan" element={<div>Dashboard Labanan</div>} />
+        <Route path="otm" name="signedPages" element={<LayoutSigned />}>
+          <Route path="dashboard-wo" name="Dashboard Wo" element={<DashboardWo />} />
+          <Route path="dashboard-pm" name="Dashboard Pm" element={<DashboardPm/>} />
 
-          <Route path="transaction/pks" name="transactionPks" element={<div>PKS Transaction</div>} />
-          <Route path="transaction/pks/:id" name="transactionPksDetails" element={<div>PKS Transaction Details</div>} />
+          <Route path="all-wo" name="Work Order All" element={<WorkOrderAll/>} />
+          <Route path="not-started-wo" name="Work Order NS" element={<WorkOrderNS/>} />
+          <Route path="started-wo" name="Work Order S" element={<WorkOrderS/>} />
+          <Route path="completed" name="WorkOrder C" element={<WorkOrderC/>} />
+          <Route path="finished-wo" name="WorkOrder F" element={<WorkOrderF/>} />
+          
+          <Route path="all-pm" name="Preventive Maintenance" element={<PreventiveMaintenanceAll/>} />
+          <Route path="pm-schedules" name="Preventive Maintenance" element={<PreventiveMaintenanceSchedules/>} />
 
-          <Route path="transaction/t30" name="transactionT30" element={<div>T30 Transaction</div>} />
-          <Route
-            path="transaction/t30/:id"
-            name="transactionT30Details"
-            element={<div>T30 Transaction detailss</div>}
-          />
+          <Route path="projects" name="project" element={<Project/>} />
 
-          <Route path="transaction/labanan" name="transactionLabanan" element={<div>Labanan Transaction</div>} />
-          <Route
-            path="transaction/labanan/:id"
-            name="transactionLabananDetails"
-            element={<div>Labanan Transaction Details</div>}
-          />
+          <Route path="reports" name="report" element={<DailyReport/>} />
 
-          <Route path="md/provinces" name="mdProvice" element={<MDProvince />} />
-          <Route path="md/cities" name="mdCity" element={<MDCity />} />
+          <Route path="list-asset" name="asset list" element={<AssetList/>} />
+          <Route path="list-certificate" name="asset list" element={<AssetCertificate/>} />
+
+          <Route path="list-spareparts" name="list sparepart" element= {<ListOfSpareparts/>}/>
+
+          <Route path="vendor" name="vendor" element= {<Vendor/>}/>
+          <Route path="contact-person" name="contact" element= {<Contact/>}/>
+
+          <Route path="year" name="Setting" element= {<Setting/>}/>
 
           <Route path="*" name="Page 404" element={<div>Page 404 Admin</div>} />
         </Route>
         {/* </Route> */}
 
-        <Route path="*" name="Page 404" element={<div>Page 404 Public</div>} />
+        <Route path="*" name="Page 404" element={<div>Page 404</div>} />
       </Routes>
     </Suspense>
   );
