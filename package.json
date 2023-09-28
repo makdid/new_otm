@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "react-date-range": "^1.4.0"
+    "@mui/lab": "^5.0.0-alpha.146"
   }
 }

@@ -1,4 +1,2 @@
-export * from "./dashboard-all";
-export * from "./dashboard-pks";
-export * from "./dashboard-t30";
-export * from "./dashboard-labanan";
+export * from "./dashboard-wo";
+export * from "./dashboard-pm";
