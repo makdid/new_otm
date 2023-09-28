@@ -239,7 +239,7 @@ const Sidebar = () => {
 
               <Item
                 title="User Management"
-                to="#"
+                to="proyek"
                 icon={<PeopleOutlinedIcon />}
                 selected={sidebar.selected}
                 setSelected={setSelected}

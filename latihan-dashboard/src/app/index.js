@@ -22,6 +22,7 @@ const DashboardAll = lazy(() => import("../pages/dashboard/dashboard-all"));
 
 const MDProvince = lazy(() => import("../pages/master-data/md-province"));
 const MDCity = lazy(() => import("../pages/master-data/md-city"));
+const Proyek = lazy(() => import("../pages/Pm"));
 
 function App() {
   const { configs } = useConfig();
@@ -74,9 +75,10 @@ function App() {
             name="transactionLabananDetails"
             element={<div>Labanan Transaction Details</div>}
           />
-
+          
           <Route path="md/provinces" name="mdProvice" element={<MDProvince />} />
           <Route path="md/cities" name="mdCity" element={<MDCity />} />
+          <Route path="Proyek" name="proyek" element={<Proyek />} />
 
           <Route path="*" name="Page 404" element={<div>Page 404 Admin</div>} />
         </Route>
