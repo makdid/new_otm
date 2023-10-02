@@ -1,9 +1,9 @@
 import React from 'react'
 
-function index() {
+const WorkOrderAll = () => {
   return (
-    <div>index</div>
+    <div>WorkOrderAll </div>
   )
 }
 
-export default index
+export default WorkOrderAll

@@ -86,7 +86,7 @@ const Sidebar = () => {
   const { sidebar } = useSelector((state) => state.app);
 
   const [toggled, setToggled] = useState(false);
-  const [broken, setBroken] = useState(false);
+  // const [broken, setBroken] = useState(false);
 
   const menuItemStyles = {
     root: {
@@ -139,7 +139,7 @@ const Sidebar = () => {
         collapsed={sidebar.isCollapsed}
         toggled={toggled}
         onBackdropClick={() => setToggled(false)}
-        onBreakPoint={setBroken}
+        // onBreakPoint={setBroken}
         breakPoint="md"
         backgroundColor={hexToRgba(themes[theme.palette.mode].sidebar.backgroundColor, 1)}
         rootStyles={{

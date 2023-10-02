@@ -7,26 +7,28 @@ import { tokens } from "../../../common/hooks/Theme";
 import { useGetProvincesQuery } from "../../../slices/master-data";
 import Tab from "@mui/material/Tab";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
-import { green, grey } from "@mui/material/colors";
+// import { green, grey } from "@mui/material/colors";
 import Create from "./create";
 import Search from "@mui/icons-material/Search";
 import Upload from "./upload";
 
-function CustomToolbar() {
-  return (
-    <GridToolbarContainer>
-      <Create />
-      <GridToolbarExport />
-      <Box variant="countainer" ml="auto" borderRadius="3px">
-        <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" />
-        <IconButton type="button" sx={{ p: 1 }}>
-          <Search />
-        </IconButton>
-      </Box>
-    </GridToolbarContainer>
-  );
-}
-const MDProvince = () => {
+const PreventiveMaintenanceAll = () => {
+
+  function CustomToolbar() {
+    return (
+      <GridToolbarContainer>
+        <Create />
+        <GridToolbarExport />
+        <Box variant="countainer" ml="auto" borderRadius="3px">
+          <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" />
+          <IconButton type="button" sx={{ p: 1 }}>
+            <Search />
+          </IconButton>
+        </Box>
+      </GridToolbarContainer>
+    );
+  }
+
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -80,11 +82,11 @@ const MDProvince = () => {
   else if (isFetching) console.log("status: fetching");
   else if (isSuccess) console.log("Provinces:", dataProvinces);
 
-  const [file, setFile] = useState();
-  function handleFile(event) {
-    setFile(event.target.files[0]);
-    console.log(file);
-  }
+  // const [file, setFile] = useState();
+  // function handleFile(event) {
+  //   setFile(event.target.files[0]);
+  //   file
+  // }
 
   return (
     <Box m="20px">
@@ -184,4 +186,4 @@ const MDProvince = () => {
   );
 };
 
-export default MDProvince;
+export default PreventiveMaintenanceAll;

@@ -45,6 +45,9 @@ const Contact = lazy (() => import("../pages/contact/contact-person"))
 const Setting = lazy (()=> import("../pages/setting/year"))
 
 function App() {
+
+  
+
   const { configs } = useConfig();
   useWeighbridge();
 
@@ -61,6 +64,7 @@ function App() {
       <ToastContainer />
       {/* <div>Weight on weighbride: {wb.weight}</div> */}
       <Routes>
+      
         {/* public routes */}
         <Route path="/" name="Public Pages" element={<LayoutPublic />}>
           <Route index name="Home Page" element={<Home />} />
