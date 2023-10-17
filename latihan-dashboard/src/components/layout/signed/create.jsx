@@ -22,7 +22,7 @@ import ButtonGroup from "@mui/material/ButtonGroup";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AddIcon from "@mui/icons-material/Add";
 
-export default function FormDialog() {
+export default function Create() {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {

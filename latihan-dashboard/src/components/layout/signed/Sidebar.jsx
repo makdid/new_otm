@@ -202,7 +202,7 @@ const Sidebar = () => {
             />
             <Item
               title="Not Started Work Orders"
-              to="otm/not-started-wo"
+              to="/otm/not-started-wo"
               icon={<ArrowRightIcon/>}
               selected={sidebar.selected}
               setSelected={setSelected}

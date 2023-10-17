@@ -1,8 +1,8 @@
-import { Box, Button, Typography, useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import Header from "../../../components/layout/signed/Header";
 import { tokens } from "../../../common/hooks/Theme";
 import PieChartPM from "../../../components/layout/signed/PieChartPMy";
-import Dates from "../../../components/layout/signed/Date";
+import ButtonDrop from "../../../components/layout/signed/ButtonDrop";
 
 const DashboardLabanan = () => {
   const theme = useTheme();
@@ -11,19 +11,19 @@ const DashboardLabanan = () => {
   return (
     <Box m="20px">
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="Dashboard Preventive Maintenance"/>
         <Box>
-        <Button
-            sx={{
-              backgroundColor: colors.blueAccent[700],
-              color: colors.grey[100],
-              fontSize: "14px",
-              fontWeight: "bold",
-              padding: "10px 20px",
-            }}
-          >
-            <Dates/>
-          </Button>
+          <Header title="Dashboard Preventive Maintenance"/>
+        </Box>
+        <Box>
+            <ButtonDrop
+              sx={{
+                backgroundColor: colors.blueAccent[700],
+                color: colors.grey[100],
+                fontSize: "14px",
+                fontWeight: "bold",
+                padding: "10px 20px",
+                }}
+            />
         </Box>
 
       </Box>
