@@ -1,10 +1,10 @@
 import * as React from 'react';
 
 import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import dayjs from 'dayjs';
 
 function ButtonField(props) {
   const {
@@ -25,7 +25,7 @@ function ButtonField(props) {
       aria-label={ariaLabel}
       onClick={() => setOpen?.((prev) => !prev)}
     >
-      {label ?? 'Pick a date'}
+      {label ? `Last 30 Days : ${label}` : 'Pick a date'}
     </Button>
   );
 }
@@ -45,20 +45,20 @@ function ButtonDatePicker(props) {
   );
 }
 
-export default function Dates() {
-  const [value, setValue] = React.useState(null);
+const date = dayjs()
+//yang dibawah untuk vanila js
+// const today = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}/${date.toDateString()}`
+// const dt = date.toDateString()
+export default function Last30() {
+  const [value, setValue] = React.useState(date);
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <Stack spacing={1}>
-        <ButtonDatePicker
-          label={`Current date: ${
-            value == null ? 'null' : value.format('MM/DD/YYYY')
-          }`}
-          value={value}
-          onChange={(newValue) => setValue(newValue)}
-        />
-      </Stack>
+      <ButtonDatePicker
+        label={value === date ? date.format('DD MMMM YYYY') : value.format('DD MMMM YYYY')}
+        value={value.add(-30, 'm')}
+        onChange={(newValue) => setValue(newValue)}
+      />
     </LocalizationProvider>
   );
 }

@@ -13,7 +13,7 @@ const LayoutPublic = lazy(() => import("../components/layout/public/LayoutPublic
 const LayoutSigned = lazy(() => import("../components/layout/signed/LayoutSigned"));
 
 // Pages
-const Home = lazy(() => import("../pages/Home"));
+const Home = lazy(() => import("../components/layout/public/Home"));
 const SignIn = lazy(() => import("../pages/auth/SignIn"));
 const Page404 = lazy(() => import("../pages/Page404"));
 const Page500 = lazy(() => import("../pages/Page500"));
@@ -44,10 +44,9 @@ const Contact = lazy (() => import("../pages/contact/contact-person"))
 
 const Setting = lazy (()=> import("../pages/setting/year"))
 
+const Profile = lazy (()=> import("../pages/profile/index"))
+
 function App() {
-
-  
-
   const { configs } = useConfig();
   useWeighbridge();
 
@@ -64,7 +63,6 @@ function App() {
       <ToastContainer />
       {/* <div>Weight on weighbride: {wb.weight}</div> */}
       <Routes>
-      
         {/* public routes */}
         <Route path="/" name="Public Pages" element={<LayoutPublic />}>
           <Route index name="Home Page" element={<Home />} />
@@ -102,6 +100,8 @@ function App() {
           <Route path="contact-person" name="contact" element= {<Contact/>}/>
 
           <Route path="year" name="Setting" element= {<Setting/>}/>
+
+          <Route path="profile" name="Profile" element= {<Profile/>}/>
 
           <Route path="*" name="Page 404" element={<div>Page 404 Admin</div>} />
         </Route>

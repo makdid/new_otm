@@ -1,10 +1,10 @@
-import { Box, Button, Typography, useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 // import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import Header from "../../../components/layout/signed/Header";
 import { tokens } from "../../../common/hooks/Theme";
 import BarChart from "../../../components/layout/signed/BarChart";
 import PieChart from "../../../components/layout/signed/PieChart";
-import Dates from "../../../components/layout/signed/Date";
+import ButtonDrop from "../../../components/layout/signed/ButtonDrop";
 
 const DashboardWo = () => {
   const theme = useTheme();
@@ -13,20 +13,11 @@ const DashboardWo = () => {
   return (
     <Box m="20px">
       <Box display="flex" justifyContent="space-between" alignItems="center">
+        
         <Header title="Dashboard Work Order"/>
-        <Box>
-        <Button
-            sx={{
-              backgroundColor: colors.blueAccent[700],
-              color: colors.grey[100],
-              fontSize: "14px",
-              fontWeight: "bold",
-              padding: "10px 20px",
-            }}
-          >
-            <Dates/>
-          </Button>
-        </Box>
+     
+        <ButtonDrop/>
+       
 
       </Box>
       

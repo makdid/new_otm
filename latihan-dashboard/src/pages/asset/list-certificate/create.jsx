@@ -11,18 +11,21 @@ import {
   TextField,
   FormLabel,
   Select,
-  MenuItem,
+  MenuItem
 } from "@mui/material";
-import { blue, green, grey, red } from "@mui/material/colors";
+import { blue, grey } from "@mui/material/colors";
 import { Formik } from "formik";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import ButtonGroup from "@mui/material/ButtonGroup";
-import DeleteIcon from "@mui/icons-material/Delete";
 import AddIcon from "@mui/icons-material/Add";
 
+
+
 export default function FormDialog() {
+
+
+
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -79,7 +82,6 @@ export default function FormDialog() {
                       <TextField
                         fullWidth
                         variant="outlined"
-                        placeholder="Masukkan Name...."
                         type="text"
                         onBlur={handleBlur}
                         // onChange={handleChange}
@@ -97,7 +99,38 @@ export default function FormDialog() {
                           fontWeight: "bold",
                         }}
                       >
-                        Repeat Every
+                        Date Time
+                      </FormLabel>
+                      <LocalizationProvider dateAdapter={AdapterDayjs}>
+                        <DatePicker label="Issued Date" />
+                      </LocalizationProvider>
+                      <LocalizationProvider dateAdapter={AdapterDayjs}>
+                        <DatePicker label="Expired Date" />
+                      </LocalizationProvider>
+                    </FormControl>
+                    <FormControl sx={{ gridColumn: "span 4" }}>
+                      <FormLabel
+                        sx={{
+                          marginBottom: "8px",
+                          fontSize: "16px",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        File Upload
+                      </FormLabel>
+                      <TextField type="file"/>
+
+                    </FormControl>
+
+                    <FormControl sx={{ gridColumn: "span 4" }}>
+                      <FormLabel
+                        sx={{
+                          marginBottom: "8px",
+                          fontSize: "16px",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        Select Vendor
                       </FormLabel>
                       <Select
                         fullWidth
@@ -122,22 +155,19 @@ export default function FormDialog() {
                           fontWeight: "bold",
                         }}
                       >
-                        Aset
+                        Reminder (x days before)
                       </FormLabel>
-                      <Select
+                      <TextField
                         fullWidth
                         variant="outlined"
+                        type="text"
                         onBlur={handleBlur}
                         // onChange={handleChange}
                         // value={values.name}
-                        name="aset"
-                      >
-                        <MenuItem value=""></MenuItem>
-                        <MenuItem value="1"></MenuItem>
-                        <MenuItem value="2"></MenuItem>
-                        <MenuItem value="3"></MenuItem>
-                        <MenuItem value="4"></MenuItem>
-                      </Select>
+                        name="name"
+                        error={!!touched.name && !!errors.name}
+                        helperText={touched.name && errors.name}
+                      />
                     </FormControl>
                     <FormControl sx={{ gridColumn: "span 4" }}>
                       <FormLabel
@@ -147,116 +177,19 @@ export default function FormDialog() {
                           fontWeight: "bold",
                         }}
                       >
-                        Date
+                        Notes
                       </FormLabel>
-                      <LocalizationProvider dateAdapter={AdapterDayjs}>
-                        <DatePicker />
-                      </LocalizationProvider>
-                      <LocalizationProvider dateAdapter={AdapterDayjs}>
-                        <DatePicker />
-                      </LocalizationProvider>
-                    </FormControl>
-                    <FormControl sx={{ gridColumn: "span 4" }}>
-                      <FormLabel
-                        sx={{
-                          marginBottom: "8px",
-                          fontSize: "16px",
-                          fontWeight: "bold",
-                        }}
-                      >
-                        Quantity
-                      </FormLabel>
-                      <TextField required type="number" />
-                    </FormControl>
-                    <FormControl sx={{ gridColumn: "span 4" }}>
-                      <FormLabel
-                        sx={{
-                          marginBottom: "8px",
-                          fontSize: "16px",
-                          fontWeight: "bold",
-                        }}
-                      >
-                        Internal
-                      </FormLabel>
-                      <Select
+                      <TextField
                         fullWidth
                         variant="outlined"
+                        type="text"
                         onBlur={handleBlur}
                         // onChange={handleChange}
                         // value={values.name}
-                        name="repeatevery"
-                      ></Select>
-                      <ButtonGroup
-                        disableElevation
-                        variant="contained"
-                        aria-label="Disabled elevation buttons"
-                      >
-                        <Button
-                          variant="contained"
-                          startIcon={<AddIcon />}
-                          sx={{
-                            backgroundColor: green[400],
-                            color: "white",
-                          }}
-                        >
-                          ADD
-                        </Button>
-                        <Button
-                          variant="outlined"
-                          startIcon={<DeleteIcon />}
-                          sx={{
-                            backgroundColor: red[400],
-                            color: "white",
-                          }}
-                        >
-                          DELETE
-                        </Button>
-                      </ButtonGroup>
-                    </FormControl>
-                    <FormControl sx={{ gridColumn: "span 4" }}>
-                      <FormLabel
-                        sx={{
-                          marginBottom: "8px",
-                          fontSize: "16px",
-                          fontWeight: "bold",
-                        }}
-                      >
-                        External
-                      </FormLabel>
-                      <Select
-                        fullWidth
-                        variant="outlined"
-                        onBlur={handleBlur}
-                        // onChange={handleChange}
-                        // value={values.name}
-                        name="repeatevery"
-                      ></Select>
-                      <ButtonGroup
-                        disableElevation
-                        variant="contained"
-                        aria-label="Disabled elevation buttons"
-                      >
-                        <Button
-                          variant="contained"
-                          startIcon={<AddIcon />}
-                          sx={{
-                            backgroundColor: green[400],
-                            color: "white",
-                          }}
-                        >
-                          ADD
-                        </Button>
-                        <Button
-                          variant="outlined"
-                          startIcon={<DeleteIcon />}
-                          sx={{
-                            backgroundColor: red[400],
-                            color: "white",
-                          }}
-                        >
-                          DELETE
-                        </Button>
-                      </ButtonGroup>
+                        name="name"
+                        error={!!touched.name && !!errors.name}
+                        helperText={touched.name && errors.name}
+                      />
                     </FormControl>
                   </Box>
                   <DialogActions>
