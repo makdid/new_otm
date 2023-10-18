@@ -74,7 +74,7 @@ export default function Create() {
                           fontWeight: "bold",
                         }}
                       >
-                        Nama
+                        Subject
                       </FormLabel>
                       <TextField
                         fullWidth
@@ -89,7 +89,7 @@ export default function Create() {
                         helperText={touched.name && errors.name}
                       />
                     </FormControl>
-                    <FormControl sx={{ gridColumn: "span 4" }}>
+                    <FormControl sx={{ gridColumn: "span 2" }}>
                       <FormLabel
                         sx={{
                           marginBottom: "8px",
@@ -97,7 +97,79 @@ export default function Create() {
                           fontWeight: "bold",
                         }}
                       >
-                        Repeat Every
+                        Requister
+                      </FormLabel>
+                      <Select
+                        fullWidth
+                        variant="outlined"
+                        onBlur={handleBlur}
+                        // onChange={handleChange}
+                        // value={values.name}
+                        name="repeatevery"
+                      >
+                        <MenuItem value="">Non Select</MenuItem>
+                        <MenuItem value="1">Week</MenuItem>
+                        <MenuItem value="2">2 Month</MenuItem>
+                        <MenuItem value="3">3 Month</MenuItem>
+                        <MenuItem value="4">Custom</MenuItem>
+                      </Select>
+                    </FormControl>
+                    <FormControl sx={{ gridColumn: "span 2" }}>
+                      <FormLabel
+                        sx={{
+                          marginBottom: "8px",
+                          fontSize: "16px",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        Depatermen
+                      </FormLabel>
+                      <TextField
+                        fullWidth
+                        variant="outlined"
+                        type="text"
+                        onBlur={handleBlur}
+                        // onChange={handleChange}
+                        // value={values.name}
+                        name="name"
+                        error={!!touched.name && !!errors.name}
+                        helperText={touched.name && errors.name}
+                      />
+                    </FormControl>
+                                        <FormControl sx={{ gridColumn: "span 2" }}>
+                      <FormLabel
+                        sx={{
+                          marginBottom: "8px",
+                          fontSize: "16px",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        Work Order Type
+                      </FormLabel>
+                      <Select
+                        fullWidth
+                        variant="outlined"
+                        onBlur={handleBlur}
+                        // onChange={handleChange}
+                        // value={values.name}
+                        name="repeatevery"
+                      >
+                        <MenuItem value="">Non Select</MenuItem>
+                        <MenuItem value="1">Week</MenuItem>
+                        <MenuItem value="2">2 Month</MenuItem>
+                        <MenuItem value="3">3 Month</MenuItem>
+                        <MenuItem value="4">Custom</MenuItem>
+                      </Select>
+                    </FormControl>
+                    <FormControl sx={{ gridColumn: "span 2" }}>
+                      <FormLabel
+                        sx={{
+                          marginBottom: "8px",
+                          fontSize: "16px",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        Priority
                       </FormLabel>
                       <Select
                         fullWidth
@@ -122,7 +194,7 @@ export default function Create() {
                           fontWeight: "bold",
                         }}
                       >
-                        Aset
+                        Related To
                       </FormLabel>
                       <Select
                         fullWidth
@@ -130,13 +202,13 @@ export default function Create() {
                         onBlur={handleBlur}
                         // onChange={handleChange}
                         // value={values.name}
-                        name="aset"
+                        name="repeatevery"
                       >
-                        <MenuItem value=""></MenuItem>
-                        <MenuItem value="1"></MenuItem>
-                        <MenuItem value="2"></MenuItem>
-                        <MenuItem value="3"></MenuItem>
-                        <MenuItem value="4"></MenuItem>
+                        <MenuItem value="">Non Select</MenuItem>
+                        <MenuItem value="1">Week</MenuItem>
+                        <MenuItem value="2">2 Month</MenuItem>
+                        <MenuItem value="3">3 Month</MenuItem>
+                        <MenuItem value="4">Custom</MenuItem>
                       </Select>
                     </FormControl>
                     <FormControl sx={{ gridColumn: "span 4" }}>
@@ -147,14 +219,72 @@ export default function Create() {
                           fontWeight: "bold",
                         }}
                       >
-                        Date
+                        Assignt To
                       </FormLabel>
-                      <LocalizationProvider dateAdapter={AdapterDayjs}>
-                        <DatePicker />
-                      </LocalizationProvider>
-                      <LocalizationProvider dateAdapter={AdapterDayjs}>
-                        <DatePicker />
-                      </LocalizationProvider>
+                      <Select
+                        fullWidth
+                        variant="outlined"
+                        onBlur={handleBlur}
+                        // onChange={handleChange}
+                        // value={values.name}
+                        name="repeatevery"
+                      >
+                        <MenuItem value="">Non Select</MenuItem>
+                        <MenuItem value="1">Week</MenuItem>
+                        <MenuItem value="2">2 Month</MenuItem>
+                        <MenuItem value="3">3 Month</MenuItem>
+                        <MenuItem value="4">Custom</MenuItem>
+                      </Select>
+                    </FormControl>
+                    <FormControl sx={{ gridColumn: "span 2" }}>
+                      <FormLabel
+                        sx={{
+                          marginBottom: "8px",
+                          fontSize: "16px",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        Aset
+                      </FormLabel>
+                      <Select
+                        fullWidth
+                        variant="outlined"
+                        onBlur={handleBlur}
+                        // onChange={handleChange}
+                        // value={values.name}
+                        name="repeatevery"
+                      >
+                        <MenuItem value="">Non Select</MenuItem>
+                        <MenuItem value="1">Week</MenuItem>
+                        <MenuItem value="2">2 Month</MenuItem>
+                        <MenuItem value="3">3 Month</MenuItem>
+                        <MenuItem value="4">Custom</MenuItem>
+                      </Select>
+                    </FormControl>
+                    <FormControl sx={{ gridColumn: "span 2" }}>
+                      <FormLabel
+                        sx={{
+                          marginBottom: "8px",
+                          fontSize: "16px",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        Related Contact
+                      </FormLabel>
+                      <Select
+                        fullWidth
+                        variant="outlined"
+                        onBlur={handleBlur}
+                        // onChange={handleChange}
+                        // value={values.name}
+                        name="repeatevery"
+                      >
+                        <MenuItem value="">Non Select</MenuItem>
+                        <MenuItem value="1">Week</MenuItem>
+                        <MenuItem value="2">2 Month</MenuItem>
+                        <MenuItem value="3">3 Month</MenuItem>
+                        <MenuItem value="4">Custom</MenuItem>
+                      </Select>
                     </FormControl>
                     <FormControl sx={{ gridColumn: "span 4" }}>
                       <FormLabel
@@ -164,19 +294,7 @@ export default function Create() {
                           fontWeight: "bold",
                         }}
                       >
-                        Quantity
-                      </FormLabel>
-                      <TextField required type="number" />
-                    </FormControl>
-                    <FormControl sx={{ gridColumn: "span 4" }}>
-                      <FormLabel
-                        sx={{
-                          marginBottom: "8px",
-                          fontSize: "16px",
-                          fontWeight: "bold",
-                        }}
-                      >
-                        Internal
+                        Eksekutor
                       </FormLabel>
                       <Select
                         fullWidth
@@ -221,42 +339,44 @@ export default function Create() {
                           fontWeight: "bold",
                         }}
                       >
-                        External
+                        Target Completion
                       </FormLabel>
-                      <Select
+                      <LocalizationProvider dateAdapter={AdapterDayjs}>
+                        <DatePicker />
+                      </LocalizationProvider>
+                    </FormControl>
+                    <FormControl sx={{ gridColumn: "span 4" }}>
+                      <FormLabel
+                        sx={{
+                          marginBottom: "8px",
+                          fontSize: "16px",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        Tags
+                      </FormLabel>
+                      <TextField
                         fullWidth
                         variant="outlined"
+                        placeholder="Masukkan Name...."
+                        type="text"
                         onBlur={handleBlur}
                         // onChange={handleChange}
                         // value={values.name}
-                        name="repeatevery"
-                      ></Select>
-                      <ButtonGroup
-                        disableElevation
-                        variant="contained"
-                        aria-label="Disabled elevation buttons"
-                      >
-                        <Button
-                          variant="contained"
-                          startIcon={<AddIcon />}
-                          sx={{
-                            backgroundColor: green[400],
-                            color: "white",
-                          }}
-                        >
-                          ADD
-                        </Button>
+                        name="name"
+                        error={!!touched.name && !!errors.name}
+                        helperText={touched.name && errors.name}
+                      />
                         <Button
                           variant="outlined"
                           startIcon={<DeleteIcon />}
                           sx={{
-                            backgroundColor: red[400],
+                            backgroundColor: blue[400],
                             color: "white",
                           }}
                         >
                           DELETE
                         </Button>
-                      </ButtonGroup>
                     </FormControl>
                   </Box>
                   <DialogActions>
