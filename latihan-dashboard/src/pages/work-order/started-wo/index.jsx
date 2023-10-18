@@ -9,7 +9,7 @@ import { mockDataContacts as data } from "../../../common/data/datapalsu";
 import Header from "../../../components/layout/signed/Header";
 import Footer from "../../../components//layout/signed/Footer";
 import { tokens } from "../../../common/hooks/Theme";
-import Create from "../../../components/layout/signed/create";
+import Create from "../create";
 
   function CustomToolbar() {
     return (
