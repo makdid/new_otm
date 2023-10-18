@@ -21,9 +21,12 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AddIcon from "@mui/icons-material/Add";
+import { useState } from "react";
+import { Editor } from "@tinymce/tinymce-react";
 
 export default function Create() {
   const [open, setOpen] = React.useState(false);
+  const [content, setContent] = useState("");
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -33,13 +36,18 @@ export default function Create() {
     setOpen(false);
   };
 
+  const handleSubmit = (event) => {
+    alert("Text was submitted: " + content);
+    event.preventDefault();
+  };
+
   return (
     <Box>
       <Button variant="countainer" onClick={handleClickOpen}>
         <AddIcon />
         NEW
       </Button>
-      <Dialog open={open} onClose={handleClose} fullWidth maxWidth={"sm"}>
+      <Dialog open={open} onClose={handleClose} fullWidth maxWidth={"sm"} onSubmit={handleSubmit}>
         <DialogTitle
           sx={{ color: "white", backgroundColor: "black", fontSize: "27px" }}
         >
@@ -56,7 +64,7 @@ export default function Create() {
                 handleChange,
                 handleSubmit,
               }) => (
-                <form onSubmit={handleClose}>
+                <form onSubmit={handleSubmit}>
                   <Box
                     display="grid"
                     padding={2}
@@ -378,6 +386,27 @@ export default function Create() {
                           DELETE
                         </Button>
                     </FormControl>
+                    <FormControl sx={{ gridColumn: "span 4" }}>
+                <FormLabel
+                  sx={{
+                    marginBottom: "8px",
+                    fontSize: "16px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Form Editor
+                </FormLabel>
+                {/* Integrasikan komponen Editor TinyMCE */}
+                <Editor
+                  apiKey="qagffr3pkuv17a8on1afax661irst1hbr4e6tbv888sz91jc"
+                  value={content}
+                  init={{
+                    height: 200,
+                    menubar: false,
+                  }}
+                  onEditorChange={(newContent) => setContent(newContent)}
+                />
+              </FormControl>
                   </Box>
                   <DialogActions>
                     <Box>
